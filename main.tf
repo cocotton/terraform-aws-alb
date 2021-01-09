@@ -39,8 +39,7 @@ resource "aws_security_group_rule" "https_ingress" {
 }
 
 module "access_logs" {
-  source                             = "cloudposse/lb-s3-bucket/aws"
-  version                            = "0.9.0"
+  source                             = "git::https://github.com/cocotton/terraform-aws-lb-s3-bucket.git?ref=aws-alb-terraform-0.14.0-support"
   enabled                            = module.this.enabled && var.access_logs_enabled
   name                               = module.this.name
   namespace                          = module.this.namespace
